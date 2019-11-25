@@ -8,12 +8,23 @@ import { Output, EventEmitter } from '@angular/core';
   styleUrls: ['./product-alerts.component.css']
 })
 export class ProductAlertsComponent implements OnInit {
-  @Input() product;
+  napis = "toggle";
+  @Input() product: any;
   @Output() notify = new EventEmitter();
+  visible: boolean = true;
+  @Output() open: EventEmitter<any> = new EventEmitter();
+  @Output() close: EventEmitter<any> = new EventEmitter();
   constructor() { }
-
-  ngOnInit() {
+  toggle() {
+    this.visible = !this.visible;
+    if (this.visible) {
+      this.open.emit(null);
+      this.napis = "toggle";
+    } else {
+      this.close.emit(null);
+      this.napis = "not toggle";
+    }
   }
+  ngOnInit() { }
 
 }
-

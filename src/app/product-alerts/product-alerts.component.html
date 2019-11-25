@@ -1,3 +1,15 @@
+<!-- <div (click)="toggle()">Toggle</div> -->
+<p></p>
+<button (click)="toggle()">{{napis}}</button>
+
+<div [hidden]="!visible">  
+  <h3>Widoczny</h3>
+</div>
+<div [hidden]="visible"> 
+  <h3>Niewidoczny</h3>
+</div>
+
 <p *ngIf="product.price > 700">
   <button (click)="notify.emit()">Notify Me</button>
 </p>
+
